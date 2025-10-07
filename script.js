@@ -112,45 +112,7 @@ function highlightNavigation() {
 
 window.addEventListener('scroll', highlightNavigation);
 
-// Formulário de contato
-const contactForm = document.getElementById('contactForm');
-const formMessage = document.getElementById('formMessage');
 
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Coletar dados do formulário
-    const formData = {
-        nome: document.getElementById('nome').value,
-        empresa: document.getElementById('empresa').value,
-        email: document.getElementById('email').value,
-        telefone: document.getElementById('telefone').value,
-        servico: document.getElementById('servico').value,
-        mensagem: document.getElementById('mensagem').value
-    };
-    
-    // Validação básica
-    if (!formData.nome || !formData.email || !formData.telefone || !formData.mensagem) {
-        showMessage('Por favor, preencha todos os campos obrigatórios.', 'error');
-        return;
-    }
-    
-    // Validação de email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
-        showMessage('Por favor, insira um e-mail válido.', 'error');
-        return;
-    }
-    
-    // Simulação de envio (em produção, aqui seria feita a requisição para o servidor)
-    showMessage('Mensagem enviada com sucesso! Entraremos em contato em breve.', 'success');
-    
-    // Limpar formulário
-    contactForm.reset();
-    
-    // Log dos dados (em produção, isso seria enviado para um servidor)
-    console.log('Dados do formulário:', formData);
-});
 
 function showMessage(message, type) {
     formMessage.textContent = message;
